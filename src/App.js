@@ -6,14 +6,14 @@ import WatchlistPage from './WatchlistPage';
 import { useState } from 'react';
 
 function App() {
-  const [user, setUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path="/">
-            <AuthPage />
+            <AuthPage setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/search">
             {user ? <SearchPage /> : <Redirect to="/" />}
