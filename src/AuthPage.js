@@ -1,5 +1,5 @@
-import React from 'react';
-import { signupUser, signinUser } from './services/fetch-utils';
+import React, { useState } from 'react';
+import { signUpUser, signInUser } from './services/supabase-utils';
 
 export default function AuthPage({ setCurrentUser }) {
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -25,7 +25,7 @@ export default function AuthPage({ setCurrentUser }) {
   async function handleSignIn(e) {
     e.preventDefault();
 
-    const user = await signinUser(signUpEmail, signUpPassword);
+    const user = await signInUser(signUpEmail, signUpPassword);
     setCurrentUser(user);
     clearForms();
   }
