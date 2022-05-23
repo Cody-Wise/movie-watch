@@ -8,7 +8,6 @@ export default function SearchPage() {
   const [movies, setMovies] = useState([]);
   const [watchList, setWatchList] = useState([]);
 
-
   async function handleSearch(e) {
     e.preventDefault();
 
@@ -27,15 +26,30 @@ export default function SearchPage() {
     refreshWatchList();
   }, []);
 
-  return (
-  <div>
-    <form onSubmit={handleSearch}>
-      <input onChange={e => setQuery(e.target.value)} className="input" value={query} />
-      <button>Search</button>
-    </form>
-    {movies.map((movie, i) => <MovieItem
-    key={movie + i} watchList={watchList} />)}
+  function isOnWatchList(api_id) {
+    const movieMatch = watchList.find(
+      (watchListItem) => Number(watchListItem.api_id) === Number(api_id)
+    );
 
-  </div>
+    return Boolean(movieMatch);
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSearch}>
+        <input onChange={(e) => setQuery(e.target.value)} className="input" value={query} />
+        <button>Search</button>
+      </form>
+      <div>
+        {movies.map((movie, i) => (
+          <MovieItem
+            key={movie + i}
+            refreshWatchList={refreshWatchList}
+            isOnWatchList={isOnWatchList}
+            movie={movie}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

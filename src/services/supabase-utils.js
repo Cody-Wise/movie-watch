@@ -23,10 +23,13 @@ export async function logout() {
 }
 
 export async function getWatchList() {
-    const { data } = await client  
-        .from('movies')
-        .select('*')
-    
-    return data;
+  const { data } = await client.from('movies').select('*');
+
+  return data;
 }
 
+export async function addToWatchList(movie) {
+  const response = await client.from('movies').insert(movie);
+
+  return checkError(response);
+}

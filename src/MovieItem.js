@@ -1,7 +1,24 @@
 import React from 'react';
+import { addToWatchList } from './services/supabase-utils';
 
-export default function MovieItem(watchList) {
+export default function MovieItem({ isOnWatchList, movie, refreshWatchList }) {
+  // const watched = isOnWatchList(watchList.id);
 
+  async function handleClick() {
+    await addToWatchList({
+      title: movie.title,
+      poster_path: movie.poster_path,
+      overview: movie.overview,
+      api_id: movie.id,
+    });
+    await refreshWatchList();
+  }
 
-  return <div>MovieItem</div>;
+  return (
+    <div onClick={handleClick} style={{ backgroundColor: isOnWatchList ? 'gold' : 'grey' }}>
+      <h3>{movie.title}</h3>
+      <img src={movie.poster_path} />
+      <p>{movie.overview}</p>
+    </div>
+  );
 }

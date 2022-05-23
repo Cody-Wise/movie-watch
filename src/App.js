@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
-import WatchlistPage from './WatchlistPage';
+import WatchListPage from './WatchListPage';
 import { useState } from 'react';
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
             <AuthPage setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/search">
-            {user ? <SearchPage /> : <Redirect to="/" />}
+            {currentUser ? <SearchPage /> : <Redirect to="/" />}
           </Route>
-          <Route exact path="/watchlist">
-            {user ? <WatchlistPage /> : <Redirect to="/" />}
+          <Route exact path="/watch-list">
+            {currentUser ? <WatchListPage /> : <Redirect to="/" />}
           </Route>
         </Switch>
       </Router>
