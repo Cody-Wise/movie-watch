@@ -17,7 +17,7 @@ export default function AuthPage({ setCurrentUser }) {
   async function handleSignUp(e) {
     e.preventDefault();
 
-    const user = await signupUser(signUpEmail, signUpPassword);
+    const user = await signUpUser(signUpEmail, signUpPassword);
     setCurrentUser(user);
     clearForms();
   }

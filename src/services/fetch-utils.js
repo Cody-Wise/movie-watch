@@ -1,7 +1,7 @@
 export async function searchMovies(someString) {
-    const response = await fetch(`/.netlify/functions/movies-endpoint?query=${someString}`);
+  const response = await fetch(`/.netlify/functions/movies-endpoint?query=${someString}`);
 
-    const data = await response.json();
+  const data = await response.json();
 
-    return data;
+  return data.results;
 }
