@@ -24,7 +24,11 @@ export default function MovieItem({ isOnWatchList, movie, refreshWatchList, page
   }
 
   return (
-    <div onClick={handleClick} style={{ backgroundColor: watched ? 'gold' : 'grey' }}>
+    <div
+      className="movie-item"
+      onClick={handleClick}
+      style={{ backgroundColor: watched ? 'gold' : 'grey' }}
+    >
       <h3>{movie.title}</h3>
       <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
       <p>{movie.overview}</p>

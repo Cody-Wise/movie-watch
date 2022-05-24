@@ -50,7 +50,7 @@ export default function SearchPage() {
         <input onChange={(e) => setQuery(e.target.value)} className="input" value={query} />
         <button>Search</button>
       </form>
-      <div>
+      <div className="search-list">
         {movies.map((movie, i) => (
           <MovieItem
             key={movie + i}

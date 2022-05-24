@@ -32,7 +32,7 @@ export default function WatchListPage() {
           Logout
         </a>
       </header>
-      <div>
+      <div className="search-list">
         {watchList.map((movie, i) => (
           <MovieItem
             key={movie + i}

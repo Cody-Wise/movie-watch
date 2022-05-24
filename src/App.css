@@ -38,5 +38,34 @@
 }
 
 img {
-  width: 200px;
+  width: 300px;
+}
+
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 30px;
+}
+
+.search-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header a {
+  margin: 10px;
+}
+
+header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
