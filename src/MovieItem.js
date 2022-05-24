@@ -1,16 +1,21 @@
 import React from 'react';
-import { addToWatchList } from './services/supabase-utils';
+import { addToWatchList, removeFromWatchList } from './services/supabase-utils';
 
 export default function MovieItem({ isOnWatchList, movie, refreshWatchList }) {
   const watched = isOnWatchList(movie.id);
 
   async function handleClick() {
-    await addToWatchList({
-      title: movie.title,
-      poster_path: movie.poster_path,
-      overview: movie.overview,
-      api_id: movie.id,
-    });
+    if (!watched) {
+      await addToWatchList({
+        title: movie.title,
+        poster_path: movie.poster_path,
+        overview: movie.overview,
+        api_id: movie.id,
+      });
+    } else {
+      await removeFromWatchList(movie.id);
+      console.log(movie.id);
+    }
     await refreshWatchList();
   }
 

@@ -33,3 +33,8 @@ export async function addToWatchList(movie) {
 
   return checkError(response);
 }
+
+export async function removeFromWatchList(id) {
+  const response = await client.from('movies').delete().match({ api_id: id });
+  return checkError(response);
+}
