@@ -31,11 +31,12 @@ export default function AuthPage({ setCurrentUser }) {
   }
 
   return (
-    <div>
+    <div className="auth-page">
       <div>
+        <h3>Sign In</h3>
         <form onSubmit={handleSignUp}>
           <label>
-            email
+            Email
             <input
               value={signUpEmail}
               type="email"
@@ -43,7 +44,7 @@ export default function AuthPage({ setCurrentUser }) {
             />
           </label>
           <label>
-            password
+            Password
             <input
               value={signUpPassword}
               type="password"
@@ -54,9 +55,10 @@ export default function AuthPage({ setCurrentUser }) {
         </form>
       </div>
       <div>
+        <h3>Sign Up</h3>
         <form onSubmit={handleSignIn}>
           <label>
-            email
+            Email
             <input
               value={signInEmail}
               type="email"
@@ -64,7 +66,7 @@ export default function AuthPage({ setCurrentUser }) {
             />
           </label>
           <label>
-            password
+            Password
             <input
               value={signInPassword}
               type="password"
