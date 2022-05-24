@@ -39,6 +39,7 @@ export default function WatchListPage() {
             refreshWatchList={refreshWatchList}
             isOnWatchList={isOnWatchList}
             movie={movie}
+            page={'watch-list'}
           />
         ))}
       </div>

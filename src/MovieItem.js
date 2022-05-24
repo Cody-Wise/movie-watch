@@ -1,7 +1,7 @@
 import React from 'react';
 import { addToWatchList, removeFromWatchList } from './services/supabase-utils';
 
-export default function MovieItem({ isOnWatchList, movie, refreshWatchList }) {
+export default function MovieItem({ isOnWatchList, movie, refreshWatchList, page }) {
   const watched = isOnWatchList(movie.id);
 
   async function handleClick() {
@@ -13,7 +13,12 @@ export default function MovieItem({ isOnWatchList, movie, refreshWatchList }) {
         api_id: movie.id,
       });
     } else {
-      await removeFromWatchList(movie.id);
+      if (page === 'search') {
+        await removeFromWatchList(movie.id);
+      }
+      if (page === 'watch-list') {
+        await removeFromWatchList(movie.api_id);
+      }
     }
     await refreshWatchList();
   }

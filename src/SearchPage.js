@@ -57,6 +57,7 @@ export default function SearchPage() {
             refreshWatchList={refreshWatchList}
             isOnWatchList={isOnWatchList}
             movie={movie}
+            page={'search'}
           />
         ))}
       </div>
