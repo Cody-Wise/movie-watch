@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 300px;
+}
+
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 30px;
+}
+
+.search-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header a {
+  margin: 10px;
+}
+
+header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-page form *, .auth-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-page form * {
+  margin: 5px
+}
+
+.auth-page div {
+  padding: 20px;
+  margin: 200px 20px 20px;
+  border: 4px groove aquamarine;
+  border-radius: 10px;
+}
+
+.auth-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
