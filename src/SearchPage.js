@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieItem from './MovieItem';
 import { searchMovies } from './services/fetch-utils';
-import { getWatchList } from './services/supabase-utils';
+import { getWatchList, logout } from './services/supabase-utils';
 
 export default function SearchPage() {
   const [query, setQuery] = useState('');
@@ -23,7 +23,10 @@ export default function SearchPage() {
   }
 
   useEffect(() => {
-    refreshWatchList();
+    async function load() {
+      refreshWatchList();
+    }
+    load();
   }, []);
 
   function isOnWatchList(api_id) {
@@ -35,7 +38,14 @@ export default function SearchPage() {
   }
 
   return (
-    <div>
+    <div className="search-page">
+      <header>
+        <a href="./search">Search</a>
+        <a href="./watch-list">Watch List</a>
+        <a href="./" onClick={logout}>
+          Logout
+        </a>
+      </header>
       <form onSubmit={handleSearch}>
         <input onChange={(e) => setQuery(e.target.value)} className="input" value={query} />
         <button>Search</button>

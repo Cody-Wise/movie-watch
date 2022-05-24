@@ -3,10 +3,16 @@ import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-d
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
 import WatchListPage from './WatchListPage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getUser } from './services/supabase-utils.js';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({});
+
+  useEffect(() => {
+    const user = getUser();
+    setCurrentUser(user);
+  }, []);
 
   return (
     <div className="App">
