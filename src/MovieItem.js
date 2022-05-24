@@ -14,7 +14,6 @@ export default function MovieItem({ isOnWatchList, movie, refreshWatchList }) {
       });
     } else {
       await removeFromWatchList(movie.id);
-      console.log(movie.id);
     }
     await refreshWatchList();
   }
