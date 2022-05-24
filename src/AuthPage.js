@@ -34,28 +34,6 @@ export default function AuthPage({ setCurrentUser }) {
     <div className="auth-page">
       <div>
         <h3>Sign In</h3>
-        <form onSubmit={handleSignUp}>
-          <label>
-            Email
-            <input
-              value={signUpEmail}
-              type="email"
-              onChange={(e) => setSignUpEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              value={signUpPassword}
-              type="password"
-              onChange={(e) => setSignUpPassword(e.target.value)}
-            />
-          </label>
-          <button>Sign Up</button>
-        </form>
-      </div>
-      <div>
-        <h3>Sign Up</h3>
         <form onSubmit={handleSignIn}>
           <label>
             Email
@@ -74,6 +52,28 @@ export default function AuthPage({ setCurrentUser }) {
             />
           </label>
           <button>Sign In</button>
+        </form>
+      </div>
+      <div>
+        <h3>Sign Up</h3>
+        <form onSubmit={handleSignUp}>
+          <label>
+            Email
+            <input
+              value={signUpEmail}
+              type="email"
+              onChange={(e) => setSignUpEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              value={signUpPassword}
+              type="password"
+              onChange={(e) => setSignUpPassword(e.target.value)}
+            />
+          </label>
+          <button>Sign Up</button>
         </form>
       </div>
     </div>
